@@ -34,27 +34,15 @@
                                                 </tr>
 
                                             </thead>
-                                            <!-- <tfoot>
-                                                <tr>
-                                                    <th>Cahier Id</th>
-                                                    <th>Cashier Name</th>
-                                                    <th>Deposit</th>
-                                                    <th>Withdraw</th>
-                                                    <th>Commission</th>
-                                                </tr>
-                                            </tfoot> -->
+
                                             <tbody>
                                                 <?php
-
                                                     // Check connection
                                                     include "../db_connection.php";
-// if ($connection->connect_error) {
-//     die("Connection failed: " . $connection->connect_error);
-// }
-
 // Fetch data from the "users" table
 $query = "SELECT cashier.user_id, cashier.name, money.* FROM `money` JOIN cashier on money.user_id = cashier.user_id; ";
 $result = $connection->query($query);
+$totalCommission =0;
         if ($result->num_rows > 0) {
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
@@ -72,7 +60,7 @@ $result = $connection->query($query);
                
             }
         } else {
-            echo "<tr><td colspan='2'>No results found.</td></tr>";
+            echo "<tr><td colspan='1'>No results found.</td></tr>";
         }
         echo "<tr>";
         echo "<td colspan='2'>Total</td>";

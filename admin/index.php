@@ -16,6 +16,9 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
+                    <Center>
+                        <h1>Soo Dhawoow <?php echo  $_SESSION['username'] ?></h1>
+                    </Center>
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">

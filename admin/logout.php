@@ -1,8 +1,8 @@
+<?php include "base_url.php" ?>
 <?php
-
 session_start();
 
 
 session_destroy();
 
-header("Location: login.php");
+header("Location:  $baseURL login.php");

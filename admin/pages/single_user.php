@@ -23,7 +23,7 @@
                                     <input class="form-control" type="date" name="datef" id="">
                                 </div>
                                 <div class="col-xl-3 col-md-6">
-                                    <label for="Name">Date From </label>
+                                    <label for="Name">Date To </label>
                                     <input class="form-control" type="date" name="datet" id="">
                                 </div>
 
@@ -130,14 +130,14 @@ $result = $connection->query($query);
                 echo "<td>" . $row["trans_id"] . "</td>";
                 echo "<td>" . $row["trans_date"] . "</td>";
                 echo "<td>" . $row["name"] . "</td>";
-                echo "<td>" . $row["deposit"] . "</td>";
-                echo "<td>" . $row["withdraw"] . "</td>";
+                echo "<td>" . "$". $row["deposit"] . "</td>";
+                echo "<td>" . "$". $row["withdraw"] . "</td>";
                 echo "<td>" . "$". $commission . "</td>";
                 echo "</tr>";
                
             }
         } else {
-            echo "<tr><td colspan='2'>No results found.</td></tr>";
+            echo "<tr><td colspan='2'> <h1> No results found </h1>.</td></tr>";
         }
         echo "<tr>";
         echo "<td colspan='2'>Total</td>";

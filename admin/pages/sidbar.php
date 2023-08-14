@@ -10,16 +10,17 @@
                 </a>
                 <div class="sb-sidenav-menu-heading">Transactions</div>
                 <a class="nav-link" href="<?php echo $pageURL?>add_transactions.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-from"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa fa-address-card" aria-hidden="true"></i>
+                    </div>
                     Add Transactions
                 </a>
 
                 <a class="nav-link" href="<?php echo $pageURL?>transactions.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Transactions
                 </a>
                 <a class="nav-link" href="<?php echo $pageURL?>single_user.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                     Report
                 </a>
 
@@ -27,18 +28,18 @@
 
                 <div class="sb-sidenav-menu-heading">Reg</div>
                 <a class="nav-link" href="<?php echo $pageURL?>cashier.php">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                     Cashier
                 </a>
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Users
                 </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
+            <div class="small">Developed by</div>
+            Guure Tech
         </div>
     </nav>
 </div>

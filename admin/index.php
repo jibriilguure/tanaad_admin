@@ -12,14 +12,15 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Dashboard</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
+
+
                     <Center>
-                        <h1>Soo Dhawoow <?php echo  $_SESSION['username'] ?></h1>
+                        <img style="height: 200px;" src="assets/img/guureTech.jpeg" alt="">
+                        <h1 class="mt-50">Tanaad Master Agency</h1>
+
+                        <h2 class="text-succuss">Soo Dhawoow <?php echo  $_SESSION['username'] ?></h2>
                     </Center>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
                                 <div class="card-body">Primary Card</div>
@@ -57,7 +58,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
 
 
                 </div>

@@ -43,6 +43,7 @@
 $query = "SELECT cashier.user_id, cashier.name, money.* FROM `money` JOIN cashier on money.user_id = cashier.user_id; ";
 $result = $connection->query($query);
 $totalCommission =0;
+
         if ($result->num_rows > 0) {
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
@@ -53,8 +54,8 @@ $totalCommission =0;
                 echo "<td>" . $row["trans_id"] . "</td>";
                 echo "<td>" . $row["trans_date"] . "</td>";
                 echo "<td>" . $row["name"] . "</td>";
-                echo "<td>" . $row["deposit"] . "</td>";
-                echo "<td>" . $row["withdraw"] . "</td>";
+                echo "<td>" . "$".$row["deposit"] . "</td>";
+                echo "<td>" . "$".$row["withdraw"] . "</td>";
                 echo "<td>" . "$". $commission . "</td>";
                 echo "</tr>";
                
@@ -62,12 +63,12 @@ $totalCommission =0;
         } else {
             echo "<tr><td colspan='1'>No results found.</td></tr>";
         }
-        echo "<tr>";
-        echo "<td colspan='2'>Total</td>";
-        echo "<td>" . "$".  $totalCommission .
-         "</td>";
+        // echo "<tr>";
+        // echo "<td colspan='2'>Total</td>";
+        // echo "<td>" . "$".  $totalCommission .
+        //  "</td>";
         
-        echo "</tr>";
+       // echo "</tr>";
         ?>
 
 

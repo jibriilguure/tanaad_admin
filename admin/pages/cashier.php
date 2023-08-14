@@ -28,9 +28,10 @@ if (isset($_POST['submit'])) {
     // Get the form data
     $username = $_POST['name'];
     $password = $_POST['phone'];
+    $address  = $_POST['address'];
 
     // Create the registration query
-    $query = "INSERT INTO cashier (name, phone) VALUES ('$username', '$password')";
+    $query = "INSERT INTO cashier (name, phone, address) VALUES ('$username', '$password', '$address')";
 
     // Execute the query
     if ($connection->query($query) === TRUE) {
@@ -68,6 +69,10 @@ if (isset($_POST['submit'])) {
                                                 <label for="Phone">Phone</label>
                                                 <input type="text" class="form-control" name="phone" required>
                                             </div>
+                                            <div class="form-group mt-3">
+                                                <label for="Phone">Address</label>
+                                                <input type="text" class="form-control" name="address" required>
+                                            </div>
                                             <button type="submit" name="submit"
                                                 class="btn btn-primary mt-5 p10">Register</button>
                                         </form>
@@ -87,21 +92,14 @@ if (isset($_POST['submit'])) {
                                                     <th>Id</th>
                                                     <th>Name</th>
                                                     <th>Phone</th>
+                                                    <th>Address</th>
+                                                    <th>Created</th>
                                                     <!-- <th>Age</th>
                                                     <th>Start date</th>
                                                     <th>Salary</th> -->
                                                 </tr>
                                             </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                </tr>
-                                            </tfoot>
+
                                             <tbody>
                                                 <?php
 
@@ -120,6 +118,8 @@ $result = $connection->query($query);
                 echo "<td>" . $row["user_id"] . "</td>";
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["phone"] . "</td>";
+                echo "<td>" . $row["address"] . "</td>";
+                echo "<td>" . $row["created"] . "</td>";
                 echo "</tr>";
             }
         } else {

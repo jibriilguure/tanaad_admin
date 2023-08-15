@@ -20,16 +20,16 @@
 
                                 <div class="col-xl-3 col-md-6">
                                     <label for="Name">Date From </label>
-                                    <input class="form-control" type="date" name="datef" id="">
+                                    <input class="form-control" type="date" name="datef" id="" required>
                                 </div>
                                 <div class="col-xl-3 col-md-6">
                                     <label for="Name">Date To </label>
-                                    <input class="form-control" type="date" name="datet" id="">
+                                    <input class="form-control" type="date" name="datet" id="" required>
                                 </div>
 
                                 <div class="col-xl-3 col-md-6">
                                     <label for="Name">Cashier </label>
-                                    <select class="form-control" name="cashier_id" id="">
+                                    <select class="form-control" name="cashier_id" id="" required>
                                         <?php
                                                                                         include "../db_connection.php";
     
@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
 
   // Fetch data from the "users" table
 $query = "SELECT cashier.user_id, cashier.name, money.* FROM `money` JOIN cashier on money.user_id = cashier.user_id WHERE
-trans_date BETWEEN '$dateFrom' AND '$dateTo' AND cashier.user_id = $cashierId;";
+trans_date BETWEEN '$dateFrom' AND '$dateTo' AND cashier.user_id = $cashierId ORDER BY `money`.`trans_date` DESC;";
 $result = $connection->query($query);
 
         if ($result->num_rows > 0) {

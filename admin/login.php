@@ -34,14 +34,16 @@
         $db_id = $row['user_id'];
         $db_username = $row['username'];
         $db_password = $row['password'];
+        $db_name = $row['name'];
         
         // $db_role = $row['role'];
         // $db_active = $row['active'];
     }
-    if ($username === $db_username && $password == $db_password ) {
+    if ($username === $db_username && password_verify( $password  , $db_password )) {
         session_start();
         $_SESSION['user_id'] = $db_id;
         $_SESSION['username'] = $db_username;
+        $_SESSION['name'] = $db_name;
        
         header("Location: index.php");
     }
@@ -91,7 +93,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href=""></a></div>
                                     </div>
                                 </div>
                             </div>

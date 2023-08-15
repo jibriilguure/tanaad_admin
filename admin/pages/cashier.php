@@ -29,9 +29,10 @@ if (isset($_POST['submit'])) {
     $username = $_POST['name'];
     $password = $_POST['phone'];
     $address  = $_POST['address'];
+    $epos  = $_POST['epos'];
 
     // Create the registration query
-    $query = "INSERT INTO cashier (name, phone, address) VALUES ('$username', '$password', '$address')";
+    $query = "INSERT INTO cashier (name, phone, address, epos) VALUES ('$username', '$password', '$address', $epos)";
 
     // Execute the query
     if ($connection->query($query) === TRUE) {
@@ -43,6 +44,32 @@ if (isset($_POST['submit'])) {
     
 
 
+}
+
+
+// Check if delete action is triggered
+if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['user_id'])) {
+    // Get the id of the row to be deleted
+    $deleteId = $_GET['user_id'];
+
+    // Display a Bootstrap alert with a confirmation message
+    echo '<div class="row justify-content-center ">
+    <div class="col-lg-8">';
+    echo "<div class='container-fluid px-4'>";
+    echo '<div class="alert alert-warning" role="alert">';
+    echo "<center>";
+    echo '<h1> Ma Hubtaa In aad Delete-garysid? </h1>';
+    echo "</br>";
+    echo '<a href="delete.php?action=delete&user_id=' . $deleteId . '" class="btn btn-danger mx-2">Delete</a>';
+    echo '<a href="cashier.php" class="btn btn-secondary">Cancel</a>';
+    echo "</center>";
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    
+    // Stop execution to prevent further code execution
+    exit;
 }
 
 ?>
@@ -70,6 +97,10 @@ if (isset($_POST['submit'])) {
                                                 <input type="text" class="form-control" name="phone" required>
                                             </div>
                                             <div class="form-group mt-3">
+                                                <label for="Phone">EPOS PLACE CODE</label>
+                                                <input type="text" class="form-control" name="epos" required>
+                                            </div>
+                                            <div class="form-group mt-3">
                                                 <label for="Phone">Address</label>
                                                 <input type="text" class="form-control" name="address" required>
                                             </div>
@@ -93,7 +124,9 @@ if (isset($_POST['submit'])) {
                                                     <th>Name</th>
                                                     <th>Phone</th>
                                                     <th>Address</th>
+                                                    <th>Epos Place Code</th>
                                                     <th>Created</th>
+                                                    <th>Delete</th>
                                                     <!-- <th>Age</th>
                                                     <th>Start date</th>
                                                     <th>Salary</th> -->
@@ -119,7 +152,10 @@ $result = $connection->query($query);
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["phone"] . "</td>";
                 echo "<td>" . $row["address"] . "</td>";
+                echo "<td>" . $row["epos"] . "</td>";
                 echo "<td>" . $row["created"] . "</td>";
+                
+                echo '<td><a href="?action=delete&user_id=' . $row['user_id'] . '">Delete</a></td';
                 echo "</tr>";
             }
         } else {

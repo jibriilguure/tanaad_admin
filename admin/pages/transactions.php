@@ -13,6 +13,32 @@
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4"> Transactions</h1>
+                    <?php
+                    // Check if delete action is triggered
+if (isset($_GET['action']) && $_GET['action'] === 'dt' && isset($_GET['trans_id'])) {
+    // Get the id of the row to be deleted
+    $deleteId = $_GET['trans_id'];
+
+    // Display a Bootstrap alert with a confirmation message
+    echo '<div class="row justify-content-center ">
+    <div class="col-lg-8">';
+    echo "<div class='container-fluid px-4'>";
+    echo '<div class="alert alert-warning" role="alert">';
+    echo "<center>";
+    echo '<h1> Ma Hubtaa In aad Delete-garysid? </h1>';
+    echo "</br>";
+    echo '<a href="delete.php?action=dt&trans_id=' . $deleteId . '" class="btn btn-danger mx-2">Delete</a>';
+    echo '<a href="transactions.php" class="btn btn-secondary">Cancel</a>';
+    echo "</center>";
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+    
+    // Stop execution to prevent further code execution
+    exit;
+}
+                    ?>
                     <div class="container">
                         <div class="row justify-content-start ">
                             <div class="col-lg-10">
@@ -31,16 +57,16 @@
                                                     <th>Deposit</th>
                                                     <th>Withdraw</th>
                                                     <th>Commission</th>
+                                                    <th>Delete</th>
                                                 </tr>
 
                                             </thead>
 
                                             <tbody>
-                                                <?php
-                                                    // Check connection
+                                                <?php                                                // Check connection
                                                     include "../db_connection.php";
 // Fetch data from the "users" table
-$query = "SELECT cashier.user_id, cashier.name, money.* FROM `money` JOIN cashier on money.user_id = cashier.user_id; ";
+$query = "SELECT cashier.user_id, cashier.name, money.* FROM `money` JOIN cashier on money.user_id = cashier.user_id ORDER BY `money`.`trans_date` DESC ";
 $result = $connection->query($query);
 $totalCommission =0;
 
@@ -57,6 +83,7 @@ $totalCommission =0;
                 echo "<td>" . "$".$row["deposit"] . "</td>";
                 echo "<td>" . "$".$row["withdraw"] . "</td>";
                 echo "<td>" . "$". $commission . "</td>";
+                echo '<td><a href="?action=dt&trans_id=' . $row['trans_id'] . '">Delete</a></td';
                 echo "</tr>";
                
             }

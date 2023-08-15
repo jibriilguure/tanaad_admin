@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "sooo dhawoow";
     echo '
                             <script>
-                            window.location.href = "./login.php";
+                            window.location.href = "/tanaad/admin/login.php";
                             </script>
                             ';
     exit();
